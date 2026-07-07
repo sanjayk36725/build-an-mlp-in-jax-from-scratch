@@ -18,8 +18,11 @@ import jax.random as random
 def split_prng_key(key, num):
     return random.split(key, num)
 
-# Step 3 - sample_normal_matrix (not yet solved)
-# TODO: implement
+# Step 3 - sample_normal_matrix
+import jax.random as random
+
+def sample_normal_matrix(key, shape):
+    return random.normal(key, shape)
 
 # Step 4 - sample_input_features (not yet solved)
 # TODO: implement
