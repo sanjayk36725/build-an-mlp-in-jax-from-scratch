@@ -24,8 +24,11 @@ import jax.random as random
 def sample_normal_matrix(key, shape):
     return random.normal(key, shape)
 
-# Step 4 - sample_input_features (not yet solved)
-# TODO: implement
+# Step 4 - sample_input_features
+import jax.numpy as jnp
+
+def sample_input_features(key, batch_size, num_features):
+    return sample_normal_matrix(key, (batch_size, num_features))
 
 # Step 5 - assign_class_labels (not yet solved)
 # TODO: implement
