@@ -73,8 +73,13 @@ import jax.numpy as jnp
 def relu_activation(x):
     return jnp.maximum(x, 0)
 
-# Step 11 - softmax_probabilities (not yet solved)
-# TODO: implement
+# Step 11 - softmax_probabilities
+import jax.numpy as jnp
+
+def softmax_probabilities(logits):
+    shifted = logits - jnp.max(logits, axis=-1, keepdims=True)
+    exp_logits = jnp.exp(shifted)
+    return exp_logits / jnp.sum(exp_logits, axis=-1, keepdims=True)
 
 # Step 12 - mlp_forward (not yet solved)
 # TODO: implement
