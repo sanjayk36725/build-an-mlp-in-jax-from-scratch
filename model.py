@@ -88,8 +88,13 @@ def mlp_forward(params, x):
 
     return linear_forward(x, params[-1])
 
-# Step 13 - log_softmax_logits (not yet solved)
-# TODO: implement
+# Step 13 - log_softmax_logits
+import jax.numpy as jnp
+
+def log_softmax_logits(logits):
+    shifted = logits - jnp.max(logits, axis=-1, keepdims=True)
+    logsumexp = jnp.log(jnp.sum(jnp.exp(shifted), axis=-1, keepdims=True))
+    return shifted - logsumexp
 
 # Step 14 - cross_entropy_loss (not yet solved)
 # TODO: implement
