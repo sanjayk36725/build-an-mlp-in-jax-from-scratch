@@ -110,8 +110,10 @@ def classification_accuracy(logits, labels):
     predictions = jnp.argmax(logits, axis=-1)
     return jnp.mean(predictions == labels)
 
-# Step 16 - loss_fn_of_params (not yet solved)
-# TODO: implement
+# Step 16 - loss_fn_of_params
+def loss_fn_of_params(params, inputs, one_hot_targets):
+    logits = mlp_forward(params, inputs)
+    return cross_entropy_loss(logits, one_hot_targets)
 
 # Step 17 - compute_param_grads (not yet solved)
 # TODO: implement
