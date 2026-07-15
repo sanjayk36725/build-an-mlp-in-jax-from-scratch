@@ -121,8 +121,15 @@ import jax
 def compute_param_grads(params, x, one_hot_targets):
     return jax.grad(loss_fn_of_params)(params, x, one_hot_targets)
 
-# Step 18 - sgd_update_params (not yet solved)
-# TODO: implement
+# Step 18 - sgd_update_params
+def sgd_update_params(params, grads, lr):
+    return [
+        {
+            "W": p["W"] - lr * g["W"],
+            "b": p["b"] - lr * g["b"]
+        }
+        for p, g in zip(params, grads)
+    ]
 
 # Step 19 - training_step (not yet solved)
 # TODO: implement
